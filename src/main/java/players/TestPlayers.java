@@ -14,5 +14,24 @@ public class TestPlayers {
         // // d.getName(); d.getDeck();
         // d.descrDeck();
 
+
+        
+        // Plateau plateau = new Plateau();
+
+        // k.poserCarte(); d.poserCarte();
+        // k.descrDeck(); d.descrDeck();
+
+        // k.poserCarte(); d.poserCarte();
+        // k.descrDeck(); d.descrDeck();
+
+        // plateau.contenuTable();
+        // plateau.initMAJPioche();
+        // plateau.contenuPioche(); plateau.contenuTable();
+
+        // k.piocher(); d.piocher();
+        // k.descrDeck(); d.descrDeck(); plateau.contenuPioche();
+
+        // k.choixCouleur();
+
     }
 }
