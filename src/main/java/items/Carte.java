@@ -43,10 +43,10 @@ public class Carte {
      */
     public void descr() {
         switch (color) {
-            case CARREAU : System.out.print(this.value + " de ♦️   |  "); break;
-            case COEUR : System.out.print(this.value + " de ♥️   |  "); break;
-            case PIQUE : System.out.print(this.value + " de ♠️   |  "); break;
-            default: System.out.print(this.value + " de ♣️  |  ");
+            case CARREAU -> System.out.print(this.value + " de ♦️   |  ");
+            case COEUR -> System.out.print(this.value + " de ♥️   |  ");
+            case PIQUE -> System.out.print(this.value + " de ♠️   |  ");
+            default-> System.out.print(this.value + " de ♣️  |  ");
         }        
     }
 
