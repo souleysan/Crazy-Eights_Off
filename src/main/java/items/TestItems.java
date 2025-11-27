@@ -12,6 +12,6 @@ public class TestItems {
 //        Packet p = new Packet(); p.initPacketEntier();
 //        p.contenu(); // p.contenu(27);
 //        Packet y = p.deckPlayer(4); y.contenu();
-        
+
     }
 }
