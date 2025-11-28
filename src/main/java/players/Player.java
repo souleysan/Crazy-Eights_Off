@@ -5,11 +5,13 @@ import java.util.Scanner;
 
 public class Player {
 
-    /** Cette classe implémente les players [joueurs] du jeu
+    /**
+     * Cette classe implémente les players [joueurs] du jeu
      * 
      * @author SANÉ Souleymane
      * 
      * @version console
+     * 
      */
 
 
@@ -18,34 +20,42 @@ public class Player {
     //  private int score; // Pour le mode compétition - règles expliquées prochainement dans le README.md */
 
 
-    /** Constructeur de Playeur [Joueur], avec arguments
+    /**
+     * Constructeur de Playeur [Joueur], avec arguments
      * 
      * @param name - nom souhaité pour le joueur
      * 
      * @param packetGeneral - Packet à partir duquel on génerera le deck de ce joueur
      * 
      * @param nombreCarte - Nombre de carte souhaité pour le deck de ce joueur
+     * 
      */
     public Player(String name, Packet packetGeneral, int nombreCarte) {this.nom = name; this.deck = packetGeneral.deckPlayer(nombreCarte);}
 
 
-    /** Constructeur de Player (sans argument)
+    /**
+     * Constructeur de Player (sans argument)
+     * 
      * Pour pouvoir tout set soi-même
      * 
      */
     public Player() {}
 
 
-    /** Getter de la classe player - nom
+    /**
+     * Getter de la classe player - nom
      * 
      * @return - Le nom du joueur appelant
+     * 
      */
     public String getName() {return this.nom;}
 
 
-    /** Getter de la classe player - deck
+    /**
+     * Getter de la classe player - deck
      * 
      * @return - Le nom du joueur appelant
+     * 
      */
     public Packet getDeck() {return this.deck;}
 
@@ -53,13 +63,15 @@ public class Player {
     // public int getScore() {return this.score;}
 
 
-    /** Setter de la classe player - nom
+    /**
+     * Setter de la classe player - nom
      * 
      */
     public void setName(String n) {this.nom = n;}
 
 
-    /** Setter de la classe player - deck
+    /**
+     * Setter de la classe player - deck
      * 
      * @param p - packet à partir duquel le deck du joueur est initialisé
      * 
@@ -69,15 +81,20 @@ public class Player {
     public void setDeck(Packet p, int nc) {this.deck = p.deckPlayer(nc);}
 
 
-    /** Méthode de description du deck pour le joueur appelant
+    /**
+     * Méthode de description du deck pour le joueur appelant
      * 
      */
     public void descrDeck() {System.out.print("\n" + this.nom + " : "); this.deck.contenu();}
 
 
-    /** Méthode pour poser une carte sur la table (l'ajouter à la pile)
+    /**
+     * Méthode pour poser une carte sur la table (l'ajouter à la pile)
+     * 
      * Liée à la classe Plateau
+     * 
      * On demande de sélectionner une carte de son deck à partir de sa position, affichée dans le terminal grâce au Scanner
+     * 
      */
     public void poserCarte() {
         Scanner i = new Scanner(System.in); int index;
@@ -95,7 +112,9 @@ public class Player {
     }
 
 
-    /** Méthode pour piocher une carte
+    /**
+     * Méthode pour piocher une carte
+     * 
      * La carte est choisie et distribuée de manière aléatoire
      * 
      */
@@ -107,7 +126,9 @@ public class Player {
     }
 
 
-    /** Méthode pour le choix de la couleur à imposer
+    /**
+     * Méthode pour le choix de la couleur à imposer
+     * 
      * Dès qu'un joueur pose un 8, il choisit la couleur du prochain joueur, et ce dernier devra s'y soumettre
      * 
      */
@@ -130,7 +151,10 @@ public class Player {
     }
 
 
-    /** Methode pour le mode ranked, avec les scores */
+    /**
+     * Methode pour le mode ranked, avec les scores
+     * 
+    */
     // public void initScore() {}
 
 

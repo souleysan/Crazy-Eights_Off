@@ -3,23 +3,27 @@ import items.Packet;
 
 public class Plateau {
 
-    /** Cette classe implémente le Plateau du jeu.BIl contiendra la pile de carte posées ainsi que la pioche
+    /**
+     * Cette classe implémente le Plateau du jeu.BIl contiendra la pile de carte posées ainsi que la pioche
      * 
      * @author SANÉ Souleymane
      * 
      * @version console
+     * 
      */
     public static Packet table;
     public static Packet pioche;
 
 
-    /** Constructeur de Plateau (sans argument)
+    /**
+     * Constructeur de Plateau (sans argument)
      * 
      */
     public Plateau() {this.table = new Packet(); this.pioche = new Packet();}
 
 
-    /** Méthode de description de la table
+    /**
+     * Méthode de description de la table
      * 
      */
     public void contenuTable() {
@@ -27,7 +31,8 @@ public class Plateau {
     }
 
 
-    /** Méthode de description de la pioche
+    /**
+     * Méthode de description de la pioche
      * 
      */
     public void contenuPioche() {
@@ -35,9 +40,11 @@ public class Plateau {
     }
 
 
-    /** Méthode pour initialiser et mettre à jour la pioche
+    /**
+     * Méthode pour initialiser et mettre à jour la pioche
      * 
      * @return - La pioche du jeu
+     * 
      */
     public static Packet initMAJPioche() {
         // Plateau.pioche.packetComplet.clear();
