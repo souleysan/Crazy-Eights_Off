@@ -49,9 +49,9 @@ public class Plateau {
     public static Packet initMAJPioche() {
         // Plateau.pioche.packetComplet.clear();
     
-        while (Plateau.table.packetComplet.size() - 2 >= 0) { // On fait le size() - 2 car on ne veur pas récupérer la dernière carte posée (qui correspond à packetC.siza()-1), comme on veut pas le size - 1, on prend le precedant, size() - 2
-            Plateau.pioche.packetComplet.add(table.packetComplet.get(Plateau.table.packetComplet.size() - 2)); // On ajoute la carte à la nouvelle pioche
-            Plateau.table.packetComplet.remove(Plateau.table.packetComplet.size() - 2); //    On enleve du table les carte ajouté à la pioche
+        while (Plateau.table.packetComplet.size() - 2 >= 0) {
+            Plateau.pioche.packetComplet.add(table.packetComplet.get(Plateau.table.packetComplet.size() - 2));
+            Plateau.table.packetComplet.remove(Plateau.table.packetComplet.size() - 2);
         }   return Plateau.pioche;
     }
 
