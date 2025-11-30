@@ -23,7 +23,7 @@ jobs:
           - os: macos-latest
             run_build_cmd: ./gradlew build
           - os: windows-latest
-            run_build_cmd: gradlew.bat build
+            run_build_cmd: ./gradlew.bat build
 
     permissions:
       contents: write
