@@ -28,7 +28,7 @@ jobs:
             run_build_cmd: gradlew.bat build
 
     permissions:
-      contents: read
+      contents: write
 
     steps:
     - uses: actions/checkout@v4
