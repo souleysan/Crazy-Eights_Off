@@ -26,10 +26,10 @@ jobs:
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582
 
       - name: Build with Gradle Wrapper
-        run: ${{ matrix.run_build_cmd }}
+        run: ./gradlew build
 
   dependency-submission:
-    if: github.event_name == 'push'   # Option A : exécuter uniquement sur push
+#    if: github.event_name == 'push'   # Option A : exécuter uniquement sur push
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -44,12 +44,12 @@ jobs:
           distribution: 'temurin'
 
       # Option B : vérifier que le JSON existe avant soumission
-      - name: Check dependency graph JSON exists
-        run: |
-          if [ ! -f dependency-graph-reports/javacigradle-dependency-submission.json ]; then
-            echo "File not found, skipping dependency submission"
-            exit 0
-          fi
+      #- name: Check dependency graph JSON exists
+      #  run: |
+      #    if [ ! -f dependency-graph-reports/javacigradle-dependency-submission.json ]; then
+      #      echo "File not found, skipping dependency submission"
+      #      exit 0
+      #    fi
 
       - name: Generate and submit dependency graph
         uses: gradle/actions/dependency-submission@af1da67850ed9a4cedd57bfd976089dd991e2582
