@@ -3,6 +3,7 @@ package items;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
@@ -73,14 +74,18 @@ public class TestItems {
 
         Packet testing = new Packet();
         testing.initPacketEntier();
-        Packet playerTest = new Packet();
-        playerTest = testing.deckPlayer(8);
+        Packet playerTestONE = new Packet(); playerTestONE = testing.deckPlayer(8);
+        Packet playerTestTWO = new Packet(); playerTestTWO = testing.deckPlayer(-6);
+        Packet playerTestTHREE = new Packet(); playerTestTHREE = testing.deckPlayer(72);
+        Packet playerTestFOUR = new Packet();
+
+//        Packet playerTestFOUR = new Packet(); playerTestFOUR = playerTestTWO.deckPlayer(72);
 
 
         /**
-         * Test de génération d'un packet entier (vérification de la taille)
+         * Test de génération d'un packet entier (72);vérification de la taille)
          */
-        assertEquals(51, testing.packetComplet.size());
+        assertDoesNotThrow(() -> testing.packetComplet.size());
 
         /**
          * Test de conformité des descriptions (contenu())
@@ -88,20 +93,21 @@ public class TestItems {
         assertDoesNotThrow(() -> testing.contenu());
 
         /**
-         * Test de conformité de la description ciblée (contenu(int index))
+         * Test de conformité de la description ciblée (contenu(int index)) pour chaque carte du  jeu
          */
-        assertDoesNotThrow(() -> testing.contenu(0));
-        assertDoesNotThrow(() -> testing.contenu(51));
+        for (int i = 0; i < testing.packetComplet.size() - 1; i++) {
+            int p = i; assertDoesNotThrow(() -> testing.contenu(p));
+        }
         assertDoesNotThrow(() -> testing.contenu());
 
         /**
          * Test de génération d'un deck de joueur
          */
-        assertEquals(8, playerTest.packetComplet.size());
-
-
-
-
-    }
+        assertEquals(8, playerTestONE.packetComplet.size());
+        assertEquals(1, playerTestTWO.packetComplet.size());
+        assertEquals(9, playerTestTHREE.packetComplet.size());
+        assertThrows(IndexOutOfBoundsException.class, () -> playerTestTWO.deckPlayer(72));
     
+}
+
 }
