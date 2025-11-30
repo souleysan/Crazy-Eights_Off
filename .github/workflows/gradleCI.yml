@@ -8,16 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        include:
-          - os: ubuntu-latest
-            run_build_cmd: ./gradlew build
-          - os: macos-latest
-            run_build_cmd: ./gradlew build
-          - os: windows-latest
-            run_build_cmd: .\gradlew.bat build  # Correction Windows
+    runs-on: ubuntu-latest
 
     permissions:
       contents: write
