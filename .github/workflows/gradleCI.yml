@@ -69,6 +69,16 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+
+    # 🔹 Vérification du fichier avant soumission
+    - name: Check dependency graph JSON exists
+      run: |
+        if [ ! -f dependency-graph-reports/javacigradle-dependency-submission.json ]; then
+          echo "File not found, skipping dependency submission"
+          exit 0
+        fi
+  
+
     # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
     - name: Generate and submit dependency graph
