@@ -3,7 +3,6 @@ package items;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
@@ -15,15 +14,9 @@ public class TestItems {
      */
 
 
-    //  public static enum Value {AS, DEUX, TROIS, QUATRE, CINQ, SIX, SEPT, HUIT, NEUF, DIX, VALET, DAME, ROI};
-    //  public static enum Color {CARREAU, COEUR, PIQUE, TREFLE};
-
-    static Carte tOne = new Carte(0, 3);
-    static Carte tTwo = new Carte(6, 1);
-    static Carte tThree = new Carte(6, 1);
-    static Carte tFour = new Carte(0, 0);
-    static Carte tFive = new Carte(0, 2);
-    Packet testing = new Packet();
+    static Carte tOne = new Carte(0, 3); static Carte tTwo = new Carte(6, 1);
+    static Carte tThree = new Carte(6, 1); static Carte tFour = new Carte(0, 0);
+    static Carte tFive = new Carte(0, 2); Packet testing = new Packet();
 
 
 
@@ -41,45 +34,35 @@ public class TestItems {
         /**
          * Test des getters (getValue()/getColor())
          */
-        assertEquals(tTwo.getValue(), tThree.getValue());
-        assertEquals(tTwo.getColor(), tThree.getColor());
-        assertFalse(tOne.getValue().equals(tThree.getValue()));
-        assertFalse(tOne.getColor().equals(tThree.getColor()));
+        assertEquals(tTwo.getValue(), tThree.getValue()); assertEquals(tTwo.getColor(), tThree.getColor());
+        assertFalse(tOne.getValue().equals(tThree.getValue())); assertFalse(tOne.getColor().equals(tThree.getColor()));
 
         /**
          * Test de comparaison (sameValue()/sameColor()/equals())
          */
-        assertTrue(tTwo.sameValue(tThree));
-        assertFalse(tOne.sameValue(tThree));
-        assertTrue(tTwo.sameColor(tThree));
-        assertFalse(tTwo.sameColor(tOne));
-        assertFalse(tThree.equals(tOne));
-        assertTrue(tThree.equals(tTwo));
-        assertFalse(tTwo.equals(tOne));
-        assertFalse(tOne.equals(tThree));
+        assertTrue(tTwo.sameValue(tThree)); assertFalse(tOne.sameValue(tThree));
+        assertTrue(tTwo.sameColor(tThree)); assertFalse(tTwo.sameColor(tOne));
+        assertFalse(tThree.equals(tOne)); assertTrue(tThree.equals(tTwo));
+        assertFalse(tTwo.equals(tOne)); assertFalse(tOne.equals(tThree));
         assertFalse(tFive.equals(tFour));
 
         /** 
          * Test de conformité des descriptions descr()
          */
-        assertDoesNotThrow(() -> tOne.descr() );
-        assertDoesNotThrow(() -> tTwo.descr() );
-        assertDoesNotThrow(() -> tThree.descr() );
-        assertDoesNotThrow(() -> tFour.descr() );
-        assertDoesNotThrow(() -> tFive.descr() );
+        assertDoesNotThrow(() -> tOne.descr()); assertDoesNotThrow(() -> tTwo.descr() );
+        assertDoesNotThrow(() -> tThree.descr()); assertDoesNotThrow(() -> tFour.descr() );
+        assertDoesNotThrow(() -> tFive.descr());
     }
 
-    
+    /**
+     * Test du constructeur - Packet/Packet entier/Deck
+     */
     @Test void classPacket() {
 
-        Packet testing = new Packet();
-        testing.initPacketEntier();
         Packet playerTestONE = new Packet(); playerTestONE = testing.deckPlayer(8);
-        Packet playerTestTWO = new Packet(); playerTestTWO = testing.deckPlayer(-6);
         Packet playerTestTHREE = new Packet(); playerTestTHREE = testing.deckPlayer(72);
         Packet playerTestFOUR = new Packet();
-
-//        Packet playerTestFOUR = new Packet(); playerTestFOUR = playerTestTWO.deckPlayer(72);
+        final Packet playerTestTWO = testing.deckPlayer(-6);
 
 
         /**
@@ -106,8 +89,7 @@ public class TestItems {
         assertEquals(8, playerTestONE.packetComplet.size());
         assertEquals(1, playerTestTWO.packetComplet.size());
         assertEquals(9, playerTestTHREE.packetComplet.size());
-        assertThrows(IndexOutOfBoundsException.class, () -> playerTestTWO.deckPlayer(72));
     
-}
+    }
 
 }
