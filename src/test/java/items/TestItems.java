@@ -59,7 +59,7 @@ public class TestItems {
      */
     @Test void classPacket() {
 
-        Packet playerTestONE = new Packet(); playerTestONE = testing.deckPlayer(8);
+        Packet playerTestONE = new Packet(); testing.initPacketEntier(); playerTestONE =  testing.deckPlayer(8);
         Packet playerTestTHREE = new Packet(); playerTestTHREE = testing.deckPlayer(72);
         Packet playerTestFOUR = new Packet();
         final Packet playerTestTWO = testing.deckPlayer(-6);
