@@ -95,13 +95,14 @@ public class Player {
      * 
      * On demande de sélectionner une carte de son deck à partir de sa position, affichée dans le terminal grâce au Scanner
      * 
+     * Scanner passé en argument : facilite les tests; facilitera la mise en jeu et les conditions
      */
-    public void poserCarte() {
-        Scanner i = new Scanner(System.in); int index;
+    public void poserCarte(Scanner i) {
 
         while (true) {
             System.out.println("Quelle carte choisissez-vous, tapez le chiffre, puis 'Entrez'\n");
-            index = i.nextInt(); System.out.println("\n");
+            int index; index = i.nextInt(); System.out.println("\n");
+
             if ((index >= 1) && (index <= this.deck.packetComplet.size())) {
                 Plateau.table.packetComplet.add(this.deck.packetComplet.get(index - 1));
                 this.deck.packetComplet.remove(this.deck.packetComplet.get(index - 1)); break;
@@ -132,9 +133,8 @@ public class Player {
      * Dès qu'un joueur pose un 8, il choisit la couleur du prochain joueur, et ce dernier devra s'y soumettre
      * 
      */
-    public int choixCouleur() {
-
-        Scanner col = new Scanner(System.in); int couleur;
+    public int choixCouleur(Scanner col) {
+         int couleur;
 
         while (true) {
         System.out.println("\nQuelle couleur souhaitez-vous imposer ?\n\n1 : CARREAU        2 : COEUR       3 : PIQUE       4 : TREFLE \n");
