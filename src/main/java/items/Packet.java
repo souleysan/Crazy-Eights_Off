@@ -11,7 +11,6 @@ public class Packet {
      * @see ArrayList#getClass()
      * 
      * @version console
-     * 
      */
 
 
@@ -20,7 +19,6 @@ public class Packet {
 
     /**
      * Unique constructeur de Packet - groupe de Cartes
-     * 
      */
     public Packet() {this.packetComplet = new ArrayList<>();}
 
@@ -29,7 +27,6 @@ public class Packet {
      * Méthode de description d'un Objet de type Packet
      * 
      * Affichera le conntenu d'un Packet en ligne avec délimitations [cleanage], ainsi qu'un chiffre associé pour la sélection
-     * 
      */
     public void contenu() {
         System.out.print("Voici l'état du packet : \n\n|  "); int f = 1;
@@ -48,7 +45,6 @@ public class Packet {
      * Il s'agit d'une surcharge de la fonction précédante
      * 
      * @param index - position de la carte à décrire
-     * 
      */
     public void contenu(int index) {this.packetComplet.get(index).descr();}
 
@@ -57,7 +53,6 @@ public class Packet {
      * Méthode permettant d'initialiser le packet entier, qui nous servira pour le jeu
      * 
      * Pas de packet entier, pas de jeu
-     * 
      */
     public ArrayList <Carte> initPacketEntier() {
         for (int j = 0; j < 4; j++) {
@@ -79,8 +74,7 @@ public class Packet {
      * 
      * @param nc - Indique le nombre de carte souhaité pour le sous-packet
      * 
-     * @return - Un sous-packet de nc cartes 
-     * 
+     * @return - Un sous-packet de nc cartes
      */
     public Packet deckPlayer(int nc) {
         Packet deck = new Packet();
