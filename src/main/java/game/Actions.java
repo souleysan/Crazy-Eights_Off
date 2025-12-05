@@ -1,5 +1,6 @@
 package game;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Actions {
 
@@ -39,12 +40,16 @@ public class Actions {
                 switch (act) {
                     case 1 -> {System.out.println("Vous avez pioché une carte"); break;}
                     case 2 -> {System.out.println("Vous avez posé une carte"); break;}
-                    case 3 -> {System.out.println("Vous avez consulté les decks"); break;}
                     case 0 -> {System.out.println("Vous voulez vraiment abandonner ?"); break;}
+                    default -> {System.out.println("Vous avez consulté les decks"); break;}
                 }
-            } break;
-            else {System.out.println("Veuillez selectionner un entier svp (MAJ + chiffre/nombre");}
+                break;
+            }
+            else {
+                if (true) {System.out.println("Veuillez selectionner un entier svp (MAJ + chiffre/nombre");}
+            }
 
-        } return act;
+        }
+        return act;
     }
 }
